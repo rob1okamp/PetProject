@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 //class Program
 //{
 //    /*
@@ -10,6 +10,12 @@
 //        compare.toMatch();
 //    }
 //}
+using System;
+
+
+
+
+
 namespace PetProject
 {
     /// <summary>
@@ -41,29 +47,32 @@ namespace PetProject
         /// </summary>
         /// <returns>Словесный результат сравнения</returns>
         ///
-        public string Compare()
+        public bool Compare()
         {//Именования методов начинаются с большой буквы
          //локальные переменные именуются с маленькой буквы
          //Фантомные переменные усложняют чтение кода
          //Лучше назвать digitOne и digitTwo
-            Console.WriteLine(GetNumbers());
+            if (GetNumbers())
+            {
 
-            if (DigitOne > DigitTwo)
-            {
-                Result = "Первое число больше второго";
+                if (DigitOne > DigitTwo)
+                {
+                    Result = "Первое число больше второго";
+                }
+                else if (DigitOne < DigitTwo)
+                {
+                    Result = "Первое число меньше второго";
+                }
+                else
+                {
+                    Result = "Числа равны";
+                }
+                return true;
             }
-            else if (DigitOne < DigitTwo)
-            {
-                Result = "Первое число меньше второго";
-            }
-            else
-            {
-                Result = "Числа равны";
-            }
-            return Result;
+            return false;
         }
 
-        private string GetNumbers()
+        private bool GetNumbers()
         {
             try
             {
@@ -72,12 +81,14 @@ namespace PetProject
 
                 Console.WriteLine("Введите второе число: ");
                 DigitTwo = Convert.ToDouble(Console.ReadLine());
-                return "Числа введены успешно.";
+                Console.WriteLine("Числа введены успешно.");
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return "Ошибка при вводе чисел";
+                Console.WriteLine("Ошибка при вводе чисел");
+                return false;
             }
         }
     }
