@@ -5,6 +5,9 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Version>0.0.1</Version>
+    <Authors>RobertAmangildin</Authors>
   </PropertyGroup>
 
   <ItemGroup>
